@@ -21,16 +21,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: flutter pub global activate melos
-
-      - name: Installing dependencies
-        run: melos bootstrap
-      
-      - name: Check format
-        run: melos exec -- dart format --set-exit-if-changed .
-
-      - name: Analyze project
-        run: melos exec -- dart analyze .
-
-      - name: Test
-        run: melos exec --  ../../scripts/auto_test.sh
+      - name: Execute test script
+        run: bash < curl https://raw.githubusercontent.com/rrousselGit/ci/ci/scripts/ci.sh
