@@ -1,6 +1,6 @@
 # importing auto_test.sh
 mkdir scripts
-curl https://raw.githubusercontent.com/rrousselGit/ci/ci/scripts/auto_test.sh > auto_test.sh
+curl -s https://raw.githubusercontent.com/rrousselGit/ci/ci/scripts/auto_test.sh > auto_test.sh
 chmod +x scripts/auto_test.sh
 
 # installing dependencies
