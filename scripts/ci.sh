@@ -1,14 +1,29 @@
-# importing auto_test.sh
-mkdir scripts
-curl -s https://raw.githubusercontent.com/rrousselGit/ci/ci/scripts/auto_test.sh > auto_test.sh
-chmod +x scripts/auto_test.sh
-
-# installing dependencies
+echo Installing dependencies
 dart pub global activate melos
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 melos bootstrap
 
-# analyzing and testing the codebase
-melos exec -- dart format --set-exit-if-changed .
-melos exec -- dart analyze .
-melos exec --  ../../scripts/auto_test.sh
+for PACKAGE in packages/*; do
+  echo "Checking format of $PACKAGE"
+  cd ./$PACKAGE
+  dart format --set-exit-if-changed .
+  cd -
+done
+
+for PACKAGE in packages/*; do
+  echo "Analyzing $PACKAGE"
+  cd ./$PACKAGE
+  dart analyze .
+  cd -
+done
+
+for PACKAGE in packages/*; do
+  echo "Testing $PACKAGE"
+  cd ./$PACKAGE
+  if grep -q "sdk: flutter" pubspec.yaml; then
+    flutter test --no-pub
+  else
+    dart test
+  fi
+  cd -
+done
