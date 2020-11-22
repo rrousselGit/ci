@@ -6,4 +6,6 @@ version: 0.0.1
 
 environment:
   sdk: ">=2.10.0 <3.0.0"
-  flutter: ">=2.10.0 <3.0.0"
+
+dev_dependencies:
+  test:
