@@ -7,14 +7,14 @@ for PACKAGE in packages/*; do
   echo "Checking format of $PACKAGE"
   cd ./$PACKAGE
   dart format --set-exit-if-changed .
-  cd -
+  cd - > /dev/null
 done
 
 for PACKAGE in packages/*; do
   echo "Analyzing $PACKAGE"
   cd ./$PACKAGE
   dart analyze .
-  cd -
+  cd - > /dev/null
 done
 
 for PACKAGE in packages/*; do
@@ -25,5 +25,5 @@ for PACKAGE in packages/*; do
   else
     dart test
   fi
-  cd -
+  cd - > /dev/null
 done
