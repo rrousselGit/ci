@@ -9,6 +9,9 @@ environment:
 
 dependencies:
   b: 0.0.1
+  freezed_annotation:
 
 dev_dependencies:
+  freezed:
   test:
+  build_runner:
