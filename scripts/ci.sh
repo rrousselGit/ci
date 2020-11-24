@@ -1,12 +1,12 @@
 set -e
 
-echo Installing dependencies
-dart pub global activate melos
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-melos bootstrap
-
 flutter doctor
 dart --version
+
+echo Installing dependencies
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+dart pub global activate melos
+melos bootstrap
 
 # Obtaining all the packages and their examples (if any)
 PACKAGES=()
