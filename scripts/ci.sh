@@ -31,7 +31,7 @@ for PACKAGE in ${PACKAGES[@]}; do
     if grep -q "sdk: flutter" pubspec.yaml; then
       flutter pub run build_runner build --delete-conflicting-outputs
     else
-      dart run build_runner build --delete-conflicting-outputs
+      dart pub run build_runner build --delete-conflicting-outputs
     fi
   fi
   cd - > /dev/null
