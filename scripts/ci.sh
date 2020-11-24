@@ -65,7 +65,7 @@ for PACKAGE in ${PACKAGES[@]}; do
       flutter test --no-pub --coverage
     else
       dart test --coverage coverage
-      echo ""
+      echo "test done"
       ls
       echo "obtaining coverage report"
       dart run coverage:format_coverage -l -i ./coverage/test/**/*.dart.vm.json -o ./coverage/lcov.info --packages ./.packages
