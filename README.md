@@ -5,6 +5,7 @@ This scripts:
 - can switch between `dart test` and `flutter test` based on whether the project depends on flutter or not
 - supports mono-repositories
 - detects if the project needs to run code-generators
+- executes `dart pub publish --dry-run` on all the packages that needs publishing
 
 ## Usage
 
