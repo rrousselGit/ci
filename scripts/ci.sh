@@ -5,6 +5,9 @@ dart pub global activate melos
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 melos bootstrap
 
+flutter doctor
+dart --version
+
 # Obtaining all the packages and their examples (if any)
 PACKAGES=()
 for PACKAGE in packages/*; do
