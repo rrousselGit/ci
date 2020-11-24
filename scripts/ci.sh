@@ -62,9 +62,11 @@ for PACKAGE in ${PACKAGES[@]}; do
   if test -d "test"; then
     echo "\nTesting $PACKAGE"
     if grep -q "sdk: flutter" pubspec.yaml; then
-      flutter test --no-pub
+      flutter test --no-pub --coverage
     else
-      dart test
+      dart test --coverage coverage
+      echo "obtaining coverage report"
+      dart run coverage:format_coverage -l -i ./coverage/test/**/*.dart.vm.json -o ./coverage/lcov.info --packages ./.packages
     fi
   fi
   cd - > /dev/null
@@ -78,3 +80,8 @@ for PACKAGE in ${PACKAGES[@]}; do
   fi
   cd - > /dev/null
 done
+
+if [[ -z "${CI}" ]]; then
+  echo "uploading code coverage to codecov"
+  curl -s https://codecov.io/bash | bash
+fi

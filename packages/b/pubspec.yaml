@@ -9,3 +9,4 @@ environment:
 
 dev_dependencies:
   test:
+  coverage:

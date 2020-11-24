@@ -6,6 +6,7 @@ This scripts:
 - supports mono-repositories
 - detects if the project needs to run code-generators
 - executes `dart pub publish --dry-run` on all the packages that needs publishing
+- caclulate the test coverage (both dart and flutter) and uploads it to codecov
 
 ## Usage
 
