@@ -67,6 +67,10 @@ for PACKAGE in ${PACKAGES[@]}; do
       dart test --coverage coverage
       echo "test done"
       ls
+      echo "ls coverage"
+      ls coverage
+      echo "ls coverage/test"
+      ls coverage/test
       echo "obtaining coverage report"
       dart run coverage:format_coverage -l -i ./coverage/test/**/*.dart.vm.json -o ./coverage/lcov.info --packages ./.packages
     fi
