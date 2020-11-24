@@ -1,5 +1,6 @@
 name: a
 description: A
+publish_to: "none"
 
 version: 0.0.1
 

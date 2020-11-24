@@ -72,7 +72,7 @@ done
 
 for PACKAGE in ${PACKAGES[@]}; do
   cd $PACKAGE
-  if grep -q "publish_to:" pubspec.yaml; then
+  if ! grep -q "publish_to:" pubspec.yaml; then
     echo "dry-run of 'dart pub publish' for $PACKAGE"
     dart pub lish --dry-run
   fi
