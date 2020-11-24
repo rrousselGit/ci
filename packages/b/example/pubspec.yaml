@@ -1,4 +1,4 @@
-name: b
+name: example_b
 description: B
 publish_to: "none"
 
@@ -7,5 +7,6 @@ version: 0.0.1
 environment:
   sdk: ">=2.10.0 <3.0.0"
 
-dev_dependencies:
-  test:
+dependencies:
+  b:
+    path: ..
