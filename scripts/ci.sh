@@ -99,7 +99,7 @@ set -e
 
 echo ${CI}
 
-if [[ -z "${CI}" ]]; then
+if [ "${CI}" ]; then
   echo "uploading code coverage to codecov"
   curl -s https://codecov.io/bash | bash
 fi
