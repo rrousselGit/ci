@@ -4,9 +4,17 @@ flutter doctor
 dart --version
 
 echo Installing dependencies
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-dart pub global activate melos
-melos bootstrap
+if test -d packages; then
+  export PATH="$PATH":"$HOME/.pub-cache/bin"
+  dart pub global activate melos
+  melos bootstrap
+else
+  if grep -q "sdk: flutter" pubspec.yaml; then
+    flutter pub get
+  else
+    dart pub get
+  fi
+fi
 
 # Obtaining all the packages and their examples (if any)
 PACKAGES=()
