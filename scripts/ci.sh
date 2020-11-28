@@ -18,12 +18,14 @@ fi
 
 # Obtaining all the packages and their examples (if any)
 PACKAGES=()
-for PACKAGE in packages/*; do
-  PACKAGES+=($PACKAGE)
-  if test -f $PACKAGE/example/pubspec.yaml; then
-    PACKAGES+=($PACKAGE/example)
-  fi
-done
+if test -d packages; then
+  for PACKAGE in packages/*; do
+    PACKAGES+=($PACKAGE)
+    if test -f $PACKAGE/example/pubspec.yaml; then
+      PACKAGES+=($PACKAGE/example)
+    fi
+  done
+fi
 
 if test -f pubspec.yaml; then
   PACKAGES+=(.)
