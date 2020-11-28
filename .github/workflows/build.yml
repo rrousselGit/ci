@@ -16,8 +16,7 @@ jobs:
       matrix:
         channel:
           - dev
-          - stable
-          - latest
+          - beta
 
     steps:
       - uses: actions/checkout@v2
