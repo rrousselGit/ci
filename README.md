@@ -23,6 +23,5 @@ See the `.github/workflows/` folder for an example on how to use it with Gitub A
 To run the CI in non-nullable type mode, set the `NNBD` environment variable:
 
 ```sh
-export NNBD=true
-curl -s https://raw.githubusercontent.com/rrousselGit/ci/master/scripts/ci.sh | bash
+curl -s https://raw.githubusercontent.com/rrousselGit/ci/master/scripts/ci.sh | bash -s nnbd
 ```
