@@ -20,5 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - run: echo https://raw.githubusercontent.com/rrousselGit/ci/${GITHUB_HEAD_REF}/scripts/ci.sh | bash
       - name: Execute test script
         run: curl -s https://raw.githubusercontent.com/rrousselGit/ci/${GITHUB_HEAD_REF}/scripts/ci.sh | bash
