@@ -3,6 +3,8 @@ set -e
 flutter doctor
 dart --version
 
+echo Hello World
+
 echo Installing dependencies
 if test -d packages; then
   export PATH="$PATH":"$HOME/.pub-cache/bin"
