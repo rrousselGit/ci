@@ -47,20 +47,21 @@ for PACKAGE in ${PACKAGES[@]}; do
       dart pub run build_runner build --delete-conflicting-outputs
     fi
 
-    echo Installing dependencies
-    if test -d packages; then
-      export PATH="$PATH":"$HOME/.pub-cache/bin"
-      dart pub global activate melos
-      melos bootstrap
-    else
-      if grep -q "sdk: flutter" pubspec.yaml; then
-        flutter pub get
-      else
-        dart pub get
-      fi
-    fi
   fi
   cd - > /dev/null
+
+  echo Installing dependencies (again)
+  if test -d packages; then
+    export PATH="$PATH":"$HOME/.pub-cache/bin"
+    dart pub global activate melos
+    melos bootstrap
+  else
+    if grep -q "sdk: flutter" pubspec.yaml; then
+      flutter pub get
+    else
+      dart pub get
+    fi
+  fi
 done
 
 echo "\nChecking format..."
