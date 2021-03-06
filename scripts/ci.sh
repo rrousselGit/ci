@@ -50,7 +50,8 @@ for PACKAGE in ${PACKAGES[@]}; do
   fi
   cd - > /dev/null
 
-  echo "Installing dependencies (again)"
+  echo "hello world"
+  echo "Installing dependencies again"
   if test -d packages; then
     export PATH="$PATH":"$HOME/.pub-cache/bin"
     dart pub global activate melos
